@@ -1,7 +1,6 @@
 FROM python:3.8-slim-buster
 
 RUN apt-get update --allow-unauthenticated -y
-RUN apt-get install -y python3-pip python-dev-is-python3
 RUN apt-get install -y awscli 
 
 WORKDIR /app
