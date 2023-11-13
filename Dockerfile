@@ -1,9 +1,13 @@
 FROM python:3.8-slim-buster
 
-RUN apt update -y && apt install awscli -y
+RUN apt-get update --allow-unauthenticated -y
+RUN apt-get install -y python3-pip python-dev-is-python3
+RUN apt-get install -y awscli 
+
 WORKDIR /app
 
 COPY . /app
-RUN PYTHONPATH=/usr/bin/python pip install -r requirements.txt
+
+RUN pip install -r requirements.txt
 
 CMD ["python3", "app.py"]
